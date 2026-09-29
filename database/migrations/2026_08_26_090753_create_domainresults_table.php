@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('domainresults', function (Blueprint $table) {
+           $table->id();
+            $table->string('teacher_id')->nullable();
+            $table->string('student_id')->nullable();
+            $table->string('psycomoto')->nullable();
+            $table->string('schooltype')->nullable();
+            $table->string('type')->nullable();
+            $table->string('cogname')->nullable();
+            $table->string('ref_no1')->nullable();
+            $table->string('teacher_comment')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('domainresults');
+    }
+};
