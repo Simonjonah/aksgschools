@@ -170,6 +170,155 @@
       </div>
       <!-- /.container-fluid -->
     </section>
+    @elseif (Auth::guard('web')->user()->schooltype == 'SSEB')
+     <!-- Main content -->
+   <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Schoolname</th>
+                    <th>Phone</th>
+                    <th>Surname</th>
+                    <th>First Name</th>
+                    <th>Ref NO</th>
+                    <th>Plan</th>
+                    <th>Logo</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Action</th>
+                    <th>Delete</th>
+                    <th>Date</th>
+
+                  </tr>
+                  </thead> 
+                  @if (Session::get('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                        @endif
+
+                        @if (Session::get('fail'))
+                        <div class="alert alert-danger">
+                        {{ Session::get('fail') }}
+                        </div>
+                    @endif
+                  <tbody>
+
+                    @foreach ($view_headmasters as $view_headmaster)
+                      @if ($view_headmaster->schooltype == 'SSEB')
+                      <tr>
+                        @if ($view_headmaster->slug == null)
+                          <td>No HM/HS/PRINCIPAL</td>
+                        @else
+                        <td><a href="{{ url('admin/schoolstudent/'.$view_headmaster->slug) }}" target="_blank" rel="noopener noreferrer">{{ $view_headmaster->school['schoolname'] }}</a></td>
+                          
+                        @endif
+                        <td>{{ $view_headmaster->phone }}
+                          <small>{{ $view_headmaster->lga }}</small>
+                        </td>
+
+                        <td>{{ $view_headmaster->surname }}
+                        @if ($view_headmaster->status == null)
+                          <span class="badge badge-secondary"> In progress</span>
+                         @elseif($view_headmaster->status == 'suspend')
+                         <span class="badge badge-warning"> Suspended</span>
+                         @elseif($view_headmaster->status == 'transfer')
+                         <span class="badge badge-info"> Transfered</span>
+                         @elseif($view_headmaster->status == 'retired')
+                         <span class="badge badge-danger"> Retired</span>
+                         @elseif($view_headmaster->status == 'reject')
+                         <span class="badge badge-warning"> Rejected</span>
+                         @else
+                         <span class="badge badge-success">Approved</span>
+                         @endif
+                        </td>
+                        <td>{{ $view_headmaster->fname }}</td>
+                        <td>{{ $view_headmaster->ref_no1 }}</td>
+                        <td>{{ $view_headmaster->schooltype }}</td>
+                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_headmaster->logo")}}" alt=""></td>
+                        <td><a href="{{ url('admin/viewprim/'.$view_headmaster->ref_no) }}"
+                          class='btn btn-default'>
+                           <i class="far fa-eye"></i>
+                       </a></td>
+                       <td><a href="{{ url('admin/editprim/'.$view_headmaster->ref_no) }}"
+                        class='btn btn-info'>
+                         <i class="far fa-edit"></i>
+                     </a></td>
+                     <td> <div class="input-group-prepend">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                          Action
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="{{ url('admin/primsaddmit/'.$view_headmaster->ref_no) }}">Approved</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/rejectprim/'.$view_headmaster->ref_no) }}">Reject</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/suspendprim/'.$view_headmaster->ref_no) }}">Suspend</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/tranferprim/'.$view_headmaster->ref_no) }}">Transfer</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/retiredprim/'.$view_headmaster->ref_no) }}">Retired</a></li>
+                        </ul>
+                      </div></td>
+                
+
+                   <td><a href="{{ url('admin/primdelete/'.$view_headmaster->ref_no) }}"
+                      class='btn btn-danger'>
+                      <i class="far fa-trash-alt"></i>
+                     
+                   </a></td>
+                       
+                        
+                     <td>{{ $view_headmaster->created_at->format('D d, M Y, H:i')}}</td>
+
+                      </tr>
+                     
+                     @else
+                     @endif
+                    
+                    @endforeach
+                 
+                 
+                   
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                    <th>Schoolname</th>
+
+                        <th>Phone</th>
+                        <th>Surname</th>
+                        <th>First Name</th>
+                        <th>Ref NO</th>
+                        <th>Plan</th>
+                        <th>Logo</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Action</th>
+                        <th>Delete</th>
+    
+                        <th>Date</th>
+    
+                      </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
    
     @else
       <!-- Main content -->
@@ -217,7 +366,7 @@
                   <tbody>
 
                     @foreach ($view_headmasters as $view_headmaster)
-                      @if ($view_headmaster->schooltype == 'SSEB')
+                      @if ($view_headmaster->schooltype == 'TECHNICAL')
                       <tr>
                         @if ($view_headmaster->slug == null)
                           <td>No HM/HS/PRINCIPAL</td>

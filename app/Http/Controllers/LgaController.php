@@ -143,7 +143,11 @@ class LgaController extends Controller
 
         $countsecondaryschools = School::where('lga', $lga)
         ->where('schooltype', 'SSEB')->count();
-        return view('dashboard.admin.viewsinglelgasschool', compact('viewlga', 'countsecondaryschools', 'countprimayschools', 'viewlgasecondaries', 'viewlgas'));
+
+         $counttechschools = School::where('lga', $lga)
+        ->where('schooltype', 'TECHNICAL')->count();
+
+        return view('dashboard.admin.viewsinglelgasschool', compact('counttechschools', 'viewlga', 'countsecondaryschools', 'countprimayschools', 'viewlgasecondaries', 'viewlgas'));
     }
     public function viewteachersinlgas1($lga, $schooltype){
         if(auth::guard('web')->user()->role == 'subadmin'){
@@ -211,6 +215,17 @@ class LgaController extends Controller
         return view('dashboard.admin.viewsecondariesschools', compact('lgaModel', 'viewsecondaries'));
     }
 
+
+
+    public function viewtechnicalschools($lga){
+         
+        $lgaModel = Lga::where('lga', $lga)->first();
+        $viewsecondaries = School::where('lga', $lgaModel->lga)->where('schooltype', 'TECHNICAL')->latest()->get();
+        
+        return view('dashboard.admin.viewtechnicalschools', compact('lgaModel', 'viewsecondaries'));
+    }
+
+    
     public function viewprincipalsbylgadmin(){         
         $lgasprincipals = Lga::all();
         return view('dashboard.admin.viewprincipalsbylgadmin', compact('lgasprincipals'));

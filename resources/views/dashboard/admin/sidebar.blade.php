@@ -371,12 +371,17 @@
                   </a>
                 </li>
 
-               
-
                 <li class="nav-item">
                   <a href="{{ url('admin/viewheadmaster') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View HM/HS</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{ url('admin/viewtechprincipal') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Tech Principal</p>
                   </a>
                 </li>
 
@@ -513,19 +518,19 @@
               <li class="nav-item">
                 <a href="{{ url('admin/nurserysubjects') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Assign Prim & Nursery Sub</p>
+                  <p>Primary Subjects</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ url('admin/viewsubject') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Assign Secondary School Sub</p>
+                  <p>Secondary Subjects</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ url('admin/teachertosubjects') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Teacher to Subject</p>
+                  <p>Technical Subjects</p>
                 </a>
               </li>
 

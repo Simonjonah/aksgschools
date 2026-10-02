@@ -114,9 +114,11 @@
     </section>
 
 
-  @else
-    
- 
+
+
+  @elseif (Auth::guard('web')->user()->schooltype == 'SSEB')
+
+  
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -238,6 +240,188 @@
 
                     @foreach ($view_mysubjects as $view_mysubject)
                         @if ($view_mysubject->subsection == 'Junior Secondary')
+                        <tr>
+                          <td>{{ $view_mysubject->subjectname }}</td>
+                          <td>{{ $view_mysubject->section }} / {{ $view_mysubject->subsection }}</td>
+                          
+                          <td><a href="{{ url('admin/editsubjectsc/'.$view_mysubject->connect) }}"
+                            class='btn btn-default'>
+                             <i class="far fa-edit"></i></td>
+
+                             <td><a href="#"
+                             {{-- url('web/assignedsubjects/'.$view_mysubject->connect) --}}
+                              class='btn btn-info'>
+                               <i class="far fa-edit"></i></td>
+
+                             <td><a href="{{ url('admin/deletesubjectsc/'.$view_mysubject->connect) }}"
+                                class='btn btn-danger'>
+                                <i class="far fa-trash-alt"></i>
+                            
+                            <td>{{ $view_mysubject->created_at->format('D d, M Y, H:i')}}</td>
+
+                      
+                        </tr>
+  
+                        @else
+                            
+                        @endif
+                        
+                       
+                   
+                  @endforeach
+                      
+                
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>Subjects</th>
+                      <th>Section</th>
+                     
+  
+                      <th>Edit</th>
+                      <th>Assigned Subjects</th>
+                      <th>Delete</th>
+                      <th>Date</th>
+  
+                      
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+
+    @else
+    
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Subjects</th>
+                      <th>Section</th>
+                     
+  
+                      <th>Edit</th>
+                      <th>Assigned Subjects</th>
+                      <th>Delete</th>
+                      <th>Date</th>
+  
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    @foreach ($view_mysubjects as $view_mysubject)
+                        @if ($view_mysubject->subsection == 'Senior Technical')
+                        <tr>
+                          <td>{{ $view_mysubject->subjectname }}</td>
+                          <td>{{ $view_mysubject->section }}/ {{ $view_mysubject->subsection }}</td>
+                          
+                          <td><a href="{{ url('admin/editsubjectsc/'.$view_mysubject->connect) }}"
+                            class='btn btn-default'>
+                             <i class="far fa-edit"></i></td>
+
+                             <td><a href="#"
+                             {{-- url('web/assignedsubjects/'.$view_mysubject->connect) --}}
+                              class='btn btn-info'>
+                               <i class="far fa-edit"></i></td>
+
+                             <td><a href="{{ url('admin/deletesubjectsc/'.$view_mysubject->connect) }}"
+                                class='btn btn-danger'>
+                                <i class="far fa-trash-alt"></i>
+                            
+                            <td>{{ $view_mysubject->created_at->format('D d, M Y, H:i')}}</td>
+
+                      
+                        </tr>
+  
+                        @else
+                            
+                        @endif
+                        
+                       
+                   
+                  @endforeach
+                      
+                
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>Subjects</th>
+                      <th>Section</th>
+                     
+  
+                      <th>Edit</th>
+                      <th>Assigned Subjects</th>
+                      <th>Delete</th>
+                      <th>Date</th>
+  
+                      
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Subjects</th>
+                      <th>Section</th>
+                     
+  
+                      <th>Edit</th>
+                      <th>Assigned Subjects</th>
+                      <th>Delete</th>
+                      <th>Date</th>
+  
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    @foreach ($view_mysubjects as $view_mysubject)
+                        @if ($view_mysubject->subsection == 'Junior Technical')
                         <tr>
                           <td>{{ $view_mysubject->subjectname }}</td>
                           <td>{{ $view_mysubject->section }} / {{ $view_mysubject->subsection }}</td>

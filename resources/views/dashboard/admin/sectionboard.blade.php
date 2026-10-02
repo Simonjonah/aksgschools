@@ -79,16 +79,25 @@
 
                          <td>  @if ($view_board->schooltype == 'SUBEB')
                           <a class="btn btn-success" href="{{ url('admin/addboardmemebers/'.$view_board->ref_no1) }}" target="_blank">Add SUBEB Board Members</a>
-                          @else
+                          
+                          @elseif ($view_board->schooltype == 'SSEB')
                           <a class="btn btn-success" href="{{ url('admin/addboardmemebers/'.$view_board->ref_no1) }}" target="_blank">Add SSEB Board Members</a>
+                          @elseif ($view_board->schooltype == 'TECHNICAL')
+                          <a class="btn btn-success" href="{{ url('admin/addboardmemebers/'.$view_board->ref_no1) }}" target="_blank">Add TECHNICAL Board Members</a>
+
+                          @else
                           @endif
                         </td>
 
 
                         <td>  @if ($view_board->schooltype == 'SUBEB')
                           <a href="{{ url('/schoolsheads/'.$view_board->ref_no1) }}" target="_blank">{{ url('/schoolsheads/'.$view_board->ref_no1) }}</a>
-                          @else
+                          @elseif ($view_board->schooltype == 'SSEB')
                           <a href="{{ url('/schoolsprincipals/'.$view_board->ref_no1) }}" target="_blank">{{ url('/schoolsprincipals/'.$view_board->ref_no1) }}</a>
+                          @elseif ($view_board->schooltype == 'TECHNICAL')
+                          <a href="{{ url('/technicalprincipals/'.$view_board->ref_no1) }}" target="_blank">{{ url('/technicalprincipals/'.$view_board->ref_no1) }}</a>
+
+                          @else
                           @endif
                         </td>
                        

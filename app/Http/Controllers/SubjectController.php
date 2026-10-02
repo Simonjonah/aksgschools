@@ -24,6 +24,16 @@ class SubjectController extends Controller
         return view('dashboard.admin.addsubject');
     }
 
+    public function addsecondarysubjectsadmin(){
+       
+        return view('dashboard.admin.addsecondarysubjectsadmin');
+    }
+
+     public function addtechnicalsubjectsadmin(){
+       
+        return view('dashboard.admin.addtechnicalsubjectsadmin');
+    }
+ 
     public function addsubjectsc(){
 
         $view_mysections = User::where('user_id', auth::guard('web')->id()
@@ -83,8 +93,13 @@ class SubjectController extends Controller
     }
 
 
+    public function teachertosubjects(){
+        $view_subjects = Subject::where('section', 'Secondary')->latest()->get();
+        return view('dashboard.admin.teachertosubjects', compact('view_subjects'));
+    }
+
     public function viewsubject(){
-        $view_subjects = Subject::latest()->get();
+        $view_subjects = Subject::where('section', 'Secondary')->latest()->get();
         return view('dashboard.admin.viewsubject', compact('view_subjects'));
     }
     public function viewallsubjects(){
@@ -108,6 +123,7 @@ class SubjectController extends Controller
         return view('dashboard.subjectsassgned', compact('view_mysubjects'));
     }
     
+
     
     
     public function editsubject($connect){
@@ -207,7 +223,7 @@ class SubjectController extends Controller
     }
 
     public function nurserysubjects(){
-        $viewnursery_subjects = Subject::latest()->get();
+        $viewnursery_subjects = Subject::where('section', 'Primary')->latest()->get();
         return view('dashboard.admin.nurserysubjects', compact('viewnursery_subjects'));
     }
      

@@ -38,9 +38,10 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Schoolname</th>
                     <th>Subjects</th>
                     <th>Section</th>
+                    <th>Sub Section</th>
+                    <th>Edit</th>
                     <th>Delete</th>
                   
                     <th>Date</th>
@@ -59,20 +60,18 @@
                     {{ Session::get('fail') }}
                     @endif
                     @foreach ($viewnursery_subjects as $viewnursery_subject)
-                        {{-- @if ($viewnursery_subject->section = 'Primary' || $viewnursery_subject->section = 'Nursery' || $viewnursery_subject->section = 'Pre-School' || $viewnursery_subject->section = 'Preparatory') --}}
                         <tr>
-                            <td>{{ $viewnursery_subject->user['schoolname'] }}</td>
                             <td>{{ $viewnursery_subject->subjectname }}</td>
                             <td>{{ $viewnursery_subject->section }}</td>
+                            <td>{{ $viewnursery_subject->subsection }}</td>
                          
-                          <th><a href="{{ url('admin/subdelte/'.$viewnursery_subject->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></th>
+                          <th><a href="{{ url('admin/editsubject/'.$viewnursery_subject->connect) }}" class="btn btn-success"><i class="fas fa-edit"></i></a></th>
+                          <th><a href="{{ url('admin/deletesubject/'.$viewnursery_subject->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></th>
                             
                          <td>{{ $viewnursery_subject->created_at->format('D d, M Y, H:i')}}</td>
     
                           </tr> 
-                        {{-- @else
-                            
-                        @endif --}}
+                       
                      
                      
                     @endforeach
@@ -82,9 +81,10 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Schoolname</th>
                       <th>Subjects</th>
                       <th>Section</th>
+                      <th>Sub Section</th>
+                      <th>Edit</th>
                       <th>Delete</th>
                     
                       <th>Date</th>
@@ -104,61 +104,4 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.5
-    </div>
-    <strong>Copyright &copy; 2023 <a href="httpS://goldenschools">GOLDEN SCHOOLS</a>.</strong> All rights
-    reserved.
-  </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-
-<script src="../../assets/plugins/jquery/jquery.min.js"></script>
-
-<script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script src="../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../assets/plugins/jszip/jszip.min.js"></script>
-<script src="../../assets/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../assets/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
-<script src="../../assets/dist/js/adminlte.min.js?v=3.2.0"></script>
-
-<script src="../../assets/dist/js/demo.js"></script>
-
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
-</body>
-</html>
+   @include('dashboard.admin.footer')

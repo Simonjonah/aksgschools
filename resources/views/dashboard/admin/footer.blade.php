@@ -1,6 +1,6 @@
 <!-- Main Footer -->
 <footer class="main-footer">
-  <strong>Copyright &copy; 2026 <a href="#">BAYELSA STATE GOVERNMENT SCHOOL PORTALS ADMIN</a>.</strong>
+  <strong>Copyright &copy; 2026 <a href="#">AKSG STATE GOVERNMENT SCHOOL PORTALS ADMIN (ARISE AGENDA)</a>.</strong>
   All rights reserved.
   <div class="float-right d-none d-sm-inline-block">
     <!-- <b>Version</b> 3.0.5 -->

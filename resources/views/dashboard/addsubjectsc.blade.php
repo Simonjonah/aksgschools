@@ -54,9 +54,11 @@
                     <select name="section" class="form-control" id="">
                       @if (Auth::guard('web')->user()->schooltype == 'SUBEB')
                       <option value="Primary">Primary</option>
-                        
+                      @elseif (Auth::guard('web')->user()->schooltype == 'SSEB')
+                        <option value="Secondary">Secondary</option>
+                      @elseif (Auth::guard('web')->user()->schooltype == 'TECHNICAL')
+                        <option value="Technical">Technical</option>
                       @else
-                      <option value="Secondary">Secondary</option>
                       @endif
                     </select>
                   </div>
@@ -68,8 +70,16 @@
                       <option value="Senior Secondary">Senior Secondary</option>
                     </select>
                   </div>
+                  @elseif (Auth::guard('web')->user()->schooltype == 'TECHNICAL')
+                   <div class="form-group">
+                    <label for="">Select SubSection</label>
+                    <select name="subsection" class="form-control" id="">
+                      <option value="Junior Technical">Junior Technical</option>
+                      <option value="Senior Technical">Senior Technical</option>
+                    </select>
+                  </div>
                  @else
-                @endif]
+                @endif
 
 
 

@@ -46,6 +46,11 @@
                         <i class="fas fa-edit"></i>
                         Total Secondary Schools in <span style="color: orange; text-transform: uppercase;"><b>{{ $viewlga->lga }}</b></span> {{ $countsecondaryschools }} 
                       </h3>
+
+                       <h3 class="card-title">
+                        <i class="fas fa-edit"></i>
+                        Total Technical Schools in <span style="color: orange; text-transform: uppercase;"><b>{{ $viewlga->lga }}</b></span> {{ $counttechschools }} 
+                      </h3>
                     </div>
                     <div class="card-body pad table-responsive">
                         <div class="row">
@@ -96,7 +101,38 @@
                                   </div>
                                 </div>
                               </div>
+
+
+
+
+                              <div class="col-md-3">
+                                <div class="card card-primary">
+                                  <div class="card-header">
+                                    @foreach ($viewlgasecondaries as $viewlgasecondarie)
+                                    <h3 class="card-title"><a href="{{ url('admin/viewtechnicalschools/'.$viewlgasecondarie->lga) }}">View Technical Schools</a></h3>
+                                        
+                                    @endforeach
+                    
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                  </div>
+                                  <!-- /.card-header -->
+                                  <div class="card-body">
+                                    @foreach ($viewlgasecondaries as $viewlgasecondarie)
+                                    <a href="{{ url('admin/viewtechnicalschools/'.$viewlgasecondarie->lga) }}">View Technical Schools</a> 
+                                        
+                                    @endforeach
+                                  </div>
+                                </div>
+                              </div>
+
                         </div>
+
+
+
                     <!-- /.card -->
                   </div>
                 </div>

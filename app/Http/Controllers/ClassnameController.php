@@ -33,6 +33,10 @@ class ClassnameController extends Controller
 
         return view('dashboard.admin.addsecondaryClasses');
     }
+     public function addtechClasses(){
+
+        return view('dashboard.admin.addtechClasses');
+    }
 
     
     public function createclasses (Request $request){

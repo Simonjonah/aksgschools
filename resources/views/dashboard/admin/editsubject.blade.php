@@ -65,20 +65,84 @@
                         @enderror 
                     </div>
 
-                    <div class="col-lg-6 col-md-6 col-sm-23">
-                      <div class="form-group">
+              <div class="col-lg-6 col-md-6 col-sm-23">
+                           <!--  <div class="form-group">
                         <h5>Section </h5>
                         <select required class="form-control" type="text" name="section">
                           
-                          <option value="{{ $edit_subject->section }}">{{ $edit_subject->section }}</option>
                           <option value="Primary">Primary</option>
                           <option value="Junior Secondary">Junior Secondary</option>
                           <option value="Secondary">Secondary</option>
                         </select>
                       </div> 
-                    </div>
+                    </div> -->
                 
-              
+                  <div class="form-group">
+                  <label>Select Section</label>
+                  <select required name="section" id="section" class="form-control">
+                      <option value="{{ $edit_subject->section }}">{{ $edit_subject->section }}</option>
+                      <option value="Primary">Primary</option>
+                      <option value="Secondary">Secondary</option>
+                      <option value="Technical">Technical</option>
+                  </select>
+              </div>
+
+              @error('section')
+                  <span class="text-danger">{{ $message }}</span>
+              @enderror
+
+              <div class="form-group" id="subsectionDiv" style="display: none;">
+                  <label>Select Sub Section</label>
+                  <select name="subsection" id="subsection" class="form-control">
+                      <option value="">Select Sub Section</option>
+                      <option value="Junior Secondary">Junior Secondary</option>
+                      <option value="Senior Secondary">Senior Secondary</option>
+
+                       <option value="Junior Technical">Junior Technical</option>
+                      <option value="Senior Technical">Senior Technical</option>
+                  </select>
+              </div>
+
+              @error('subsection')
+                  <span class="text-danger">{{ $message }}</span>
+              @enderror
+
+
+              <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+
+                      const section = document.getElementById('section');
+                      const subsectionDiv = document.getElementById('subsectionDiv');
+                      const subsection = document.getElementById('subsection');
+
+                      function toggleSubsection() {
+
+                          if (section.value === 'Secondary' || section.value === 'Technical') {
+
+                              // Show subsection
+                              subsectionDiv.style.display = 'block';
+
+                              // Make it required
+                              subsection.required = true;
+
+                          } else {
+
+                              // Hide subsection
+                              subsectionDiv.style.display = 'none';
+
+                              // Remove required
+                              subsection.required = false;
+
+                              // Clear selected value
+                              subsection.value = '';
+                          }
+                      }
+
+                      // Run when page loads
+                      toggleSubsection();
+                      section.addEventListener('change', toggleSubsection);
+                  });
+              </script>               
               
 
               <div class="card-footer">

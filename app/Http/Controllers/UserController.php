@@ -1161,13 +1161,22 @@ class UserController extends Controller
     return view('dashboard.admin.viewprincipals', compact('view_principals'));
 }
 
-
-
-
-
-
-
+ public function viewtechprincipal(){
+    $view_principals = User::where('assign1', 'Principal')
+    ->where('section', 'Technical')->latest()->get();
    
+    return view('dashboard.admin.viewtechprincipal', compact('view_principals'));
+}
+
+
+    public function technicalprincipals ($ref_no1){
+        $getyours = User::where('ref_no1', $ref_no1)->first();
+        $getclasses = Classname::where('ref_no1', $ref_no1)->get();
+        $lgas = Lga::orderBy('lga')->get();
+        $addacademics = Academicsession::latest()->get();
+        
+        return view('auth.technicalprincipals', compact('lgas', 'getclasses', 'getyours', 'addacademics'));
+    }
 
     public function schoolsprincipals ($ref_no1){
         $getyours = User::where('ref_no1', $ref_no1)->first();

@@ -31,7 +31,7 @@
            {{-- <img src="{{ asset('assets/dist/img/arise.jpg') }}" alt="webLTE Logo" class="brand-image "
            style="opacity: .8">
            <br> --}}
-      <span class="brand-text font-weight-light"><br>BAYELSA SCHOOLS </span>
+      <span class="brand-text font-weight-light"><br>AKSG SCHOOLS </span>
     </a>
     
       
@@ -555,19 +555,19 @@
               <li class="nav-item">
                 <a href="{{ url('admin/nurserysubjects') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Assign Prim & Nursery Sub</p>
+                  <p>Primary Subjects</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ url('admin/viewsubject') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Assign Secondary School Sub</p>
+                  <p>Secondary Subjects</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('admin/admintosubjects') }}" class="nav-link">
+                <a href="{{ url('admin/teachertosubjects') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Teacher to Subject</p>
+                  <p>Technical Subjects</p>
                 </a>
               </li>
 
@@ -957,7 +957,7 @@
     <a href="{{ url('admin/home')}}" class="brand-link">
       <img src="{{ asset('assets/dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">BAYELSA</span>
+      <span class="brand-text font-weight-light">AKSG</span>
     </a>
 
     <!-- Sidebar -->
@@ -1474,7 +1474,7 @@
            {{-- <img src="{{ asset('assets/dist/img/arise.jpg') }}" alt="webLTE Logo" class="brand-image "
            style="opacity: .8">
            <br> --}}
-      <span class="brand-text font-weight-light"><br>BAYELSA </span>
+      <span class="brand-text font-weight-light"><br>AKSG </span>
     </a>
     
       
@@ -1541,6 +1541,8 @@
                 SCHOOL PRINCIPALS
                 @elseif(auth()->user()->schooltype == 'SUBEB')
                 HEAD MASTERS/MISTRESSES
+                @elseif(auth()->user()->schooltype == 'TECHNICAL')
+                TECHNICAL
                 @endif
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right"></span>
@@ -1954,7 +1956,7 @@
     <a href="{{ url('admin/home')}}" class="brand-link">
       <img src="{{ asset('assets/dist/img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">BAYELSA</span>
+      <span class="brand-text font-weight-light">AKSG SCHOOLS</span>
     </a>
 
     <!-- Sidebar -->

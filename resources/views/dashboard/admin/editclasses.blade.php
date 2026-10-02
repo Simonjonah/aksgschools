@@ -70,7 +70,9 @@
                       <label for="exampleInputEmail1">Section</label>
                       <select name="section" class="form-control" id="">
                         <option value="{{ $edit_clesses->section }}">{{ $edit_clesses->section }}</option>
-                        <option value="Primary">Primary</option>
+                        <!-- <option value="Primary">Primary</option>
+                        <option value="Secondary">Secondary</option>
+                        <option value="Technical">Technical</option> -->
                         
                       </select>
                      
@@ -79,8 +81,25 @@
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
 
+                  @if($edit_clesses->section == 'Technical')
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Sub Section</label>
+                      <select name="subsection" class="form-control" id="">
+                        <option value="{{ $edit_clesses->subsection }}">{{ $edit_clesses->subsection }}</option>
+
+                        <option value="Junior Technical">Junior Technical</option>
+                        <option value="Senior Technical">Senior Technical</option>
 
 
+                      </select>
+                     
+                    </div>
+                    @error('subsection')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                  @elseif($edit_clesses->section == 'Secondary')
                     <div class="form-group">
                       <label for="exampleInputEmail1">Sub Section</label>
                       <select name="subsection" class="form-control" id="">
@@ -88,12 +107,16 @@
 
                         <option value="Junior Secondary">Junior Secondary</option>
                         <option value="Senior Secondary">Senior Secondary</option>
+
+
                       </select>
                      
                     </div>
                     @error('subsection')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
+                    @else
+                    @endif
 
                   </div>
 

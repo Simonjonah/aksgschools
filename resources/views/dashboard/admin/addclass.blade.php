@@ -13,6 +13,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a class="btn btn-success" href="{{ url('admin/addtechClasses') }}">Add Technical Classes</a></li>
               <li class="breadcrumb-item"><a class="btn btn-primary" href="{{ url('admin/addsecondaryClasses') }}">Add Secondary Classes</a></li>
               <!-- <li class="breadcrumb-item active">Add Classes </li> -->
             </ol>

@@ -60,6 +60,7 @@
                                 <option value="">Select Section</option>
                                 <option value="SUBEB">SUBEB</option>
                                 <option value="SSEB">SSEB</option>
+                                <option value="TECHNICAL">TECHNICAL</option>
                             </select>
                             
                           </div>

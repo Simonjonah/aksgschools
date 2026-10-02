@@ -51,9 +51,11 @@
                       <option value="Primary">Primary</option>
                         
                       @else
-                      <option value="Senior Secondary">Senior Secondary</option>
                       <option value="Junior Secondary">Junior Secondary</option>
-                        
+                      <option value="Senior Secondary">Senior Secondary</option>
+                      
+                      <option value="Junior Technical">Junior Technical</option>
+                      <option value="Senior Technical">Senior Technical</option>
                       @endif
                     </select>
                   </div>

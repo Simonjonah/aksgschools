@@ -74,6 +74,7 @@ Route::get('/api', function () {
 });
 
 Auth::routes();
+Route::get('technicalprincipals/{ref_no1}', [UserController::class, 'technicalprincipals'])->name('technicalprincipals');
 
 Route::post('/createteacherpersonal/{ref_no}', [UserController::class, 'createteacherpersonal'])->name('createteacherpersonal');
 Route::post('/generateresultPDF', [ResultController::class, 'generateresultPDF'])->name('generateresultPDF');
@@ -97,6 +98,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::view('/adminregister','dashboard.admin.adminregister')->name('adminregister');
         Route::post('/create', [UserController::class, 'create'])->name('create');
         Route::post('/check', [UserController::class, 'check'])->name('check');
+        // Route::post('/adminregister', [UserController::class, 'adminregister'])->name('adminregister');
         Route::get('/teacher/registerteachers/{ref_no}', [UserController::class, 'registerteachers'])->name('registerteachers');
 
     });
@@ -124,8 +126,9 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/viewassignsubjectsteachers', [AssignsubjectController::class, 'viewassignsubjectsteachers'])->name('viewassignsubjectsteachers');
         Route::get('/assinjuniorsubjectsview', [SubjectController::class, 'assinjuniorsubjectsview'])->name('assinjuniorsubjectsview');
         
+        Route::get('viewtechnicalschools/{lga}', [LgaController::class, 'viewtechnicalschools'])->name('viewtechnicalschools');
         Route::get('addsecondaryClasses', [ClassnameController::class, 'addsecondaryClasses'])->name('addsecondaryClasses');
-       // Route::get('deletecomstudent/{ref_no}', [CompetitionController::class, 'deletecomstudent'])->name('deletecomstudent');
+        Route::get('viewtechprincipal', [UserController::class, 'viewtechprincipal'])->name('viewtechprincipal');
        // Route::get('viewcompetitions', [CompetitionController::class, 'viewcompetitions'])->name('viewcompetitions');
         Route::get('viewschoolnews', [SchoolnewsController::class, 'viewschoolnews'])->name('viewschoolnews');
         Route::get('schoolsuspendinfo/{ref_no}', [SchoolnewsController::class, 'schoolsuspendinfo'])->name('schoolsuspendinfo');
@@ -140,6 +143,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
       
         
       
+        Route::get('addtechClasses', [ClassnameController::class, 'addtechClasses'])->name('addtechClasses');
         Route::get('approveschinfo', [SchoolnewsController::class, 'approveschinfo'])->name('approveschinfo');
         Route::get('schoolrejectinfo/{ref_no1}', [SchoolnewsController::class, 'schoolrejectinfo'])->name('schoolrejectinfo');
         Route::get('schoolapproveinfo/{ref_no1}', [SchoolnewsController::class, 'schoolapproveinfo'])->name('schoolapproveinfo');
@@ -190,7 +194,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('abujateachers', [UserController::class, 'abujateachers'])->name('abujateachers');
         Route::get('uyoteachers', [UserController::class, 'uyoteachers'])->name('uyoteachers');
         Route::get('viewteachersubjects/{user_id}', [TeacherassignController::class, 'viewteachersubjects'])->name('viewteachersubjects');
-        Route::get('teachertosubjects', [TeacherassignController::class, 'teachertosubjects'])->name('teachertosubjects');
+        Route::get('teachertosubjects', [SubjectController::class, 'teachertosubjects'])->name('teachertosubjects');
         Route::post('assignsubjectstoteacher/{id}', [TeacherassignController::class, 'assignsubjectstoteacher'])->name('assignsubjectstoteacher');
         Route::get('assignsubject/{id}', [SubjectController::class, 'assignsubject'])->name('assignsubject');
         Route::get('deletesubject/{id}', [SubjectController::class, 'deletesubject'])->name('deletesubject');
@@ -696,6 +700,8 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/deleteclass/{connect}', [ClassnameController::class, 'deleteclass'])->name('deleteclass');
         Route::get('/displaymbtlga', [LgaController::class, 'displaymbtlga'])->name('displaymbtlga');
         Route::get('/viewshs/{lga}', [LgaController::class, 'viewshs'])->name('viewshs');
+        Route::get('/addsecondarysubjectsadmin', [SubjectController::class, 'addsecondarysubjectsadmin'])->name('addsecondarysubjectsadmin');
+        Route::get('/addtechnicalsubjectsadmin', [SubjectController::class, 'addtechnicalsubjectsadmin'])->name('addtechnicalsubjectsadmin');
         
        
         // Route::get('editstudentscby/{ref_no}', [StudentController::class, 'editstudentscby'])->name('editstudentscby');

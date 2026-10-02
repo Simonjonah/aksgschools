@@ -12,7 +12,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a class="btn btn-primary" href="{{ url('admin/addsecondarysubjectsadmin') }}">Add Secondary Subjects</a></li>
+              <!-- <li class="breadcrumb-item"><a class="btn btn-primary" href="{{ url('admin/addsecondarysubjectsadmin') }}">Add Secondary Subjects</a></li> -->
               <li class="breadcrumb-item"><a class="btn btn-success" href="{{ url('admin/addtechnicalsubjectsadmin') }}">Add Technical Subjects</a></li>
               <!-- <li class="breadcrumb-item active">Dashboard </li> -->
             </ol>
@@ -82,8 +82,8 @@
                   <label>Select Section</label>
                   <select required name="section" id="section" class="form-control">
                       <!-- <option value="">Select Section</option> -->
-                      <option value="Primary">Primary</option>
-                      <!-- <option value="Secondary">Secondary</option> -->
+                      <!-- <option value="Primary">Primary</option> -->
+                      <option value="Technical">Technical</option>
                   </select>
               </div>
 
@@ -95,8 +95,8 @@
                   <label>Select Sub Section</label>
                   <select name="subsection" id="subsection" class="form-control">
                       <option value="">Select Sub Section</option>
-                      <option value="Junior Secondary">Junior Secondary</option>
-                      <option value="Senior Secondary">Senior Secondary</option>
+                      <option value="Junior Technical">Junior Technical</option>
+                      <option value="Senior Technical">Senior Technical</option>
                   </select>
               </div>
 
@@ -114,7 +114,7 @@
 
                       function toggleSubsection() {
 
-                          if (section.value === 'Secondary') {
+                          if (section.value === 'Technical') {
 
                               // Show subsection
                               subsectionDiv.style.display = 'block';

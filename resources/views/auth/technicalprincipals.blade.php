@@ -44,11 +44,16 @@
     </div>
   @endif
         <div class="input-group mb-3">
+          <!-- <input type="text" name="address" value="{{ $getyours->address }}" name="" id="">
+          <input type="text" name="motor" value="{{ $getyours->motor }}" name="" id="">
+          <input type="text" name="code" value="{{ $getyours->code }}" name="" id="">
+          <input type="text" name="schoolname" value="{{ $getyours->schoolname }}" name="" id=""> -->
           <input type="hidden" name="ref_no1" value="{{ $getyours->ref_no1 }}" name="" id="">
           <!-- <input type="hidden" name="logo" value="{{ $getyours->logo }}" name="" id=""> -->
           <input type="hidden" name="user_id" value="{{ $getyours->id }}" name="" id="">
           <input type="hidden" name="connect" value="{{ $getyours->connect }}" name="" id="">
-          
+          <!-- <input type="text" name="school_id" value="{{ $getyours->school_id }}" name="" id=""> -->
+
           <input type="hidden" name="schooltype" value="{{ $getyours->schooltype }}" name="" id="">
 
          
@@ -166,11 +171,13 @@
             <select required name="section" required class="form-control" id="">
                 @if ($getyours->schooltype === 'SSEB')
                 <option value="Secondary">Secondary</option>
-                @elseif ($getyours->schooltype === 'SUBEB')
-                <option value="Primary">Primary</option>
-                 @elseif ($getyours->schooltype === 'TECHNICAL')
-                <option value="TECHNICAL">TECHNICAL</option>
+
+                @elseif ($getyours->schooltype === 'TECHNICAL')
+                <option value="Technical">Technical</option>
+                  
                 @else
+                <option value="Primary">Primary</option>
+                  
                 @endif
             </select>
             
