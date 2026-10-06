@@ -8,11 +8,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Add @if (Auth::guard('web')->user()->schooltype == 'SSEB')
-              Students
+            <h1 class="m-0 text-dark">Add @if (Auth::guard('web')->user()->schooltype == 'SUBEB')
+              Pupils
                 
               @else
-              Pupils
+              Students
               @endif </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
@@ -20,11 +20,11 @@ l            <ol class="breadcrumb float-sm-right">
               {{-- <li cass="breadcrumb-item"><a href="{{ route('admin.addnidnetsem2leve200l') }}" class="btn btn-success">Add Semester Courses</a></li> --}}
               <li class="breadcrumb-item"><a href="#">Home</a></li>
 
-              <li class="breadcrumb-item active">Add @if (Auth::guard('web')->user()->schooltype == 'SSEB')
-                Students
+              <li class="breadcrumb-item active">Add @if (Auth::guard('web')->user()->schooltype == 'SUBEB')
+                Pupils
                   
                 @else
-                Pupils
+                Students
                 @endif  </li>
             </ol>
           </div><!-- /.col -->
@@ -160,8 +160,11 @@ l            <ol class="breadcrumb float-sm-right">
                     <select name="section" class="form-control" id="">
                       @if (Auth::guard('web')->user()->schooltype == 'SUBEB')
                       <option value="Primary">Primary</option>
-                        
+                      @elseif (Auth::guard('web')->user()->schooltype == 'TECHNICAL')
+                      <option value="Technical">Technical</option>
+
                       @else
+                      
                       <option value="Secondary">Secondary</option>
                         
                       @endif
@@ -170,7 +173,19 @@ l            <ol class="breadcrumb float-sm-right">
                     </div>
 
                     @if (Auth::guard('web')->user()->schooltype == 'SUBEB')
-                      @else
+
+                     @elseif (Auth::guard('web')->user()->schooltype == 'TECHNICAL')
+                     <div class="col-sm-6">
+                      <label for="">SubSection</label>
+                        <div class="form-group">
+                        <select name="subsection" class="form-control" id="">
+                          <option value="Junior Technical">Junior Technical</option>
+                          <option value="Senior Technical">Senior Technical</option>
+                        </select>
+                      </div>
+                    </div>
+                     @elseif (Auth::guard('web')->user()->schooltype == 'SUBEB')
+                      
                     <div class="col-sm-6">
                       <label for="">SubSection</label>
                         <div class="form-group">
@@ -180,6 +195,7 @@ l            <ol class="breadcrumb float-sm-right">
                         </select>
                       </div>
                     </div>
+                    @else
                     @endif
 
 
@@ -253,14 +269,23 @@ l            <ol class="breadcrumb float-sm-right">
                                     
                                   @endif
                               @endforeach
-                            @else
+                            @elseif (Auth::guard('web')->user()->section == 'Secondary')
                             @foreach ($view_classes as $view_classe)
-                                @if ($view_classe->section == 'Senior Secondary' || $view_classe->section == 'Secondary' || $view_classe->section == 'Junior Secondary')
+                                @if ($view_classe->section == 'Secondary')
                                   <option value="{{ $view_classe->classname }}">{{ $view_classe->classname }}</option>
                                 @else
                                   
                                 @endif
                             @endforeach
+
+                            @elseif (Auth::guard('web')->user()->section == 'Technical')
+                            @foreach ($view_classes as $view_classe)
+                                @if ($view_classe->section == 'Technical')
+                                  <option value="{{ $view_classe->classname }}">{{ $view_classe->classname }}</option>
+                                @else
+                                @endif
+                            @endforeach
+                            @else
                             @endif
                             
                           </select>

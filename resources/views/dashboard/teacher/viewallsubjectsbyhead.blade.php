@@ -97,7 +97,7 @@
     </section>
 
 
-  @else
+  @elseif (Auth::guard('web')->user()->section == 'Secondary')]
     
  
     <section class="content-header">
@@ -164,7 +164,7 @@
                     <td>{{ $view_allsubject->section }}</td>
                     <td>{{ $view_allsubject->subsection }}</td>
                     <td>
-                      <a href="{{ url('admin/assignedsubject', $view_allsubject->connect) }}" class="btn btn-primary">Assined Teacher</a>
+                      <a href="{{ url('admin/assignedsubject', $view_allsubject->connect) }}" class="btn btn-primary">Assigned Teacher</a>
                     </td>
 
                     <td>
@@ -201,6 +201,183 @@
       </div>
       <!-- /.container-fluid -->
     </section>
+    @elseif (Auth::guard('web')->user()->section == 'Technical')
+
+    
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Assign Junior Secondary Subjects</h3>
+              </div>
+              <!-- /.card-header -->
+               @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if(session('fail'))
+                    <div class="alert alert-danger">
+                        {{ session('fail') }}
+                    </div>
+                @endif
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Ref No</th>
+                    <th>Subject Name</th>
+                    <th> Section</th>
+                    <th>Sub Section</th>
+                    <th>Assigned Teacher</th>
+                    <th>View Assigned Teacher</th>
+                    <!-- <th>Date</th> -->
+                  </tr>
+                  </thead>
+                  <tbody>
+                  @foreach($view_allsubjects as $view_allsubject)
+                       @if ($view_allsubject->subsection == 'Junior Technical')
+
+                  <tr>
+
+                    <td>{{ $view_allsubject->connect }}</td>
+                    <td>{{ $view_allsubject->subjectname }}</td>
+                    <td>{{ $view_allsubject->section }}</td>
+                    <td>{{ $view_allsubject->subsection }}</td>
+                    <td>
+                      <a href="{{ url('admin/assignedsubject', $view_allsubject->connect) }}" class="btn btn-primary">Assigned Teacher</a>
+                    </td>
+
+                    <td>
+                      <a href="{{ url('admin/viewassignedteachersubject', $view_allsubject->connect) }}" class="btn btn-danger">View Assigned Teacher </a>
+                    </td>
+                    <!-- <td>{{ $view_allsubject->created_at->format('D M, Y, h:a') }}</td> -->
+                  </tr>
+                  @else
+                            
+                @endif
+                  @endforeach
+                  
+                  </tbody>
+                  <tfoot>
+                   <tr>
+                    <th>Ref No</th>
+                    <th>Subject Name</th>
+                    <th> Section</th>
+                    <th>Sub Section</th>
+
+                    <th>Assigned Teacher</th>
+                    <th>View Assigned Teacher</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+
+   
+     <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Assign Senior Secondary Subjects</h3>
+              </div>
+              <!-- /.card-header -->
+               @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if(session('fail'))
+                    <div class="alert alert-danger">
+                        {{ session('fail') }}
+                    </div>
+                @endif
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Ref No</th>
+                    <th>Subject Name</th>
+                    <th> Section</th>
+                    <th>Sub Section</th>
+                    <th>Assigned Teacher</th>
+                    <th>View Assigned Teacher</th>
+                    <!-- <th>Date</th> -->
+                  </tr>
+                  </thead>
+                  <tbody>
+                  @foreach($view_allsubjects as $view_allsubject)
+                       @if ($view_allsubject->subsection == 'Senior Technical')
+
+                  <tr>
+
+                    <td>{{ $view_allsubject->connect }}</td>
+                    <td>{{ $view_allsubject->subjectname }}</td>
+                    <td>{{ $view_allsubject->section }}</td>
+                    <td>{{ $view_allsubject->subsection }}</td>
+                    <td>
+                      <a href="{{ url('admin/assignedsubject', $view_allsubject->connect) }}" class="btn btn-primary">Assigned Teacher</a>
+                    </td>
+
+                    <td>
+                      <a href="{{ url('admin/viewassignedteachersubject', $view_allsubject->connect) }}" class="btn btn-danger">View Assigned Teacher </a>
+                    </td>
+                    <!-- <td>{{ $view_allsubject->created_at->format('D M, Y, h:a') }}</td> -->
+                  </tr>
+                  @else
+                            
+                @endif
+                  @endforeach
+                  
+                  </tbody>
+                  <tfoot>
+                   <tr>
+                    <th>Ref No</th>
+                    <th>Subject Name</th>
+                    <th> Section</th>
+                    <th>Sub Section</th>
+
+                    <th>Assigned Teacher</th>
+                    <th>View Assigned Teacher</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    @else
     @endif
     
 

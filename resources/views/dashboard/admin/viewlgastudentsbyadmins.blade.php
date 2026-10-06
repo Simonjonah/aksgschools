@@ -84,6 +84,26 @@
                                   </div>
                                 </div>
                               </div>
+
+
+
+                              <div class="col-md-3">
+                                <div class="card card-primary">
+                                  <div class="card-header">
+                                    <h3 class="card-title"><a href="{{ url('admin/viewtechnicalschoolsresultsbyadmins/'.$view_lgastudents->lga) }}">Technical Students</a></h3>
+                    
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                  </div>
+                                  <!-- /.card-header -->
+                                  <div class="card-body">
+                                    <a href="{{ url('admin/viewtechnicalschoolsresultsbyadmins/'.$view_lgastudents->lga) }}">View Technical Schools Students</a> 
+                                  </div>
+                                </div>
+                              </div>
                             
                         </div>
                     <!-- /.card -->

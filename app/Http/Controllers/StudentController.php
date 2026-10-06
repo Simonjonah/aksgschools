@@ -334,7 +334,7 @@ class StudentController extends Controller
 
     public function editstudentsm($ref_no){
         $edit_primarypupils = Student::where('ref_no', $ref_no)->first();
-        $view_classes = Classname::all();
+        $view_classes = Classname::where('section', auth::guard('web')->user()->section)->get();
         $view_sesions = Academicsession::latest()->get();
         $view_lgas = Lga::orderby('lga')->get();
         $view_alms = Alm::all();
@@ -631,34 +631,33 @@ public function searchclass(Request $request){
         }
         public function viewallstudentsbyprinc (){
             $view_primarypupils = Classname::all();
-            $view_primarypupils = Student::latest()->get();
-            $view_classes = Classname::all();
+            $view_primarypupils = Student::where('school_id', auth()->user()->school_id)->latest()->get();
+            $view_classes = Classname::where('section', auth()->user()->section)->get();
             $view_alms = Alm::all();
-            $view_terms = Term::all();
+           
             $view_sessions = Academicsession::latest()->get();
-            return view('dashboard.teacher.viewallstudentsbyprinc ', compact('view_sessions', 'view_terms', 'view_alms', 'view_classes', 'view_primarypupils'));
+            return view('dashboard.teacher.viewallstudentsbyprinc ', compact('view_sessions', 'view_alms', 'view_classes', 'view_primarypupils'));
         }
 
         
 
         public function restatedstudent (){
-            $view_primarypupils = Classname::all();
-            $view_primarypupils = Student::where('status', 'approved')->latest()->get();
-            $view_classes = Classname::all();
+            $view_primarypupils = Classname::where('section', auth()->user()->section)->get();
+            $view_primarypupils = Student::where('school_id', auth()->user()->school_id)
+            ->where('status', 'approved')->latest()->get();
+            $view_classes = Classname::where('section', auth()->user()->section)->get();
             $view_alms = Alm::all();
-            $view_terms = Term::all();
             $view_sessions = Academicsession::latest()->get();
-            return view('dashboard.teacher.restatedstudent ', compact('view_sessions', 'view_terms', 'view_alms', 'view_classes', 'view_primarypupils'));
+            return view('dashboard.teacher.restatedstudent ', compact('view_sessions', 'view_alms', 'view_classes', 'view_primarypupils'));
         }
 
         public function suspendstudentone (){
-            $view_primarypupils = Classname::all();
-            $view_primarypupils = Student::where('status', 'suspend')->latest()->get();
-            $view_classes = Classname::all();
+            $view_primarypupils = Classname::where('section', auth()->user()->section)->get();
+            $view_primarypupils = Student::where('school_id', auth()->user()->school_id)->where('status', 'suspend')->latest()->get();
+            $view_classes = Classname::where('section', auth()->user()->section)->get();
             $view_alms = Alm::all();
-            $view_terms = Term::all();
             $view_sessions = Academicsession::latest()->get();
-            return view('dashboard.teacher.suspendstudentone ', compact('view_sessions', 'view_terms', 'view_alms', 'view_classes', 'view_primarypupils'));
+            return view('dashboard.teacher.suspendstudentone ', compact('view_sessions', 'view_alms', 'view_classes', 'view_primarypupils'));
         }
 
         

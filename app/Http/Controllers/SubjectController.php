@@ -107,7 +107,7 @@ class SubjectController extends Controller
         return view('dashboard.viewallsubjects', compact('view_mysubjects'));
     }
     public function viewallsubjectsbyhead(){
-        $view_allsubjects = Subject::all();
+        $view_allsubjects = Subject::where('section', auth::guard('web')->user()->section)->latest()->get();
         return view('dashboard.teacher.viewallsubjectsbyhead', compact('view_allsubjects'));
     }
 

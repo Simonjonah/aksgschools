@@ -103,36 +103,6 @@
             </ul>
           </li>
 
-
-          
-          <!-- <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Generate Code
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <li class="nav-item">
-                  <a href="{{ url('admin/addcode') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Codes</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="{{ url('admin/viewcode') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View Code</p>
-                  </a>
-                </li>
-              </li>
-            </ul>
-          </li> -->
-          
-
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -1088,7 +1058,7 @@
                 @endforeach
                 
 
-                @else
+                @elseif (Auth::guard('web')->user()->section == 'Secondary')
                 @foreach ($view_classes as $view_classe)
                 @if ($view_classe->section == 'Junior Secondary' || $view_classe->section == 'Secondary' || $view_classe->section == 'Senior Secondary')
 
@@ -1102,6 +1072,22 @@
                    
                  @endif
                 @endforeach
+
+                @elseif (Auth::guard('web')->user()->section == 'Technical')
+                @foreach ($view_classes as $view_classe)
+                @if ($view_classe->section == 'Technical')
+
+                 <li class="nav-item">
+                    <a href="{{ url('/admin/viewclassesbyprinc/'.$view_classe->classname) }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{ $view_classe->classname }}</p>
+                    </a>
+                  </li>
+                 @else
+                   
+                 @endif
+                @endforeach
+                @else
                 @endif
              
               
@@ -1133,7 +1119,7 @@
                 @endforeach
                 
 
-                @else
+                @elseif (Auth::guard('web')->user()->section == 'Secondary')
                 @foreach ($view_classes as $view_classe)
                 @if ($view_classe->section == 'Junior Secondary' || $view_classe->section == 'Secondary' || $view_classe->section == 'Senior Secondary')
 
@@ -1147,6 +1133,22 @@
                    
                  @endif
                 @endforeach
+                @elseif (Auth::guard('web')->user()->section == 'Technical')
+                @foreach ($view_classes as $view_classe)
+                @if ($view_classe->section == 'Technical')
+
+                 <li class="nav-item">
+                    <a href="{{ url('/admin/firstermresultsbyprinc/'.$view_classe->classname) }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Unapproved {{ $view_classe->classname }} Results</p>
+                    </a>
+                  </li>
+                 @else
+                   
+                 @endif
+                @endforeach
+
+                @else
                 @endif
               </li>
 
@@ -1182,7 +1184,7 @@
                 @endforeach
                 
 
-                @else
+                @elseif (Auth::guard('web')->user()->section == 'Secondary')
                 @foreach ($view_classes as $view_classe)
                 @if ($view_classe->section == 'Junior Secondary' || $view_classe->section == 'Secondary' || $view_classe->section == 'Senior Secondary')
 
@@ -1196,6 +1198,23 @@
                    
                  @endif
                 @endforeach
+
+                @elseif (Auth::guard('web')->user()->section == 'Technical')
+                @foreach ($view_classes as $view_classe)
+                @if ($view_classe->section == 'Technical')
+
+                 <li class="nav-item">
+                    <a href="{{ url('/admin/firstermresultsbyprincapproved/'.$view_classe->classname) }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Approved {{ $view_classe->classname }} Results</p>
+                    </a>
+                  </li>
+                 @else
+                   
+                 @endif
+                @endforeach
+
+                @else 
                 @endif
               </li>
 
@@ -1264,11 +1283,10 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-               @if (Auth::guard('web')->user()->schooltype == 'SSEB')
-               Students
-                 
+               @if (Auth::guard('web')->user()->schooltype == 'SUBEB')
+                 Pupils
                @else
-               Pupils
+               Students
                @endif
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -1300,7 +1318,7 @@
                 @endforeach
                 
 
-                @else
+                @elseif (Auth::guard('web')->user()->section == 'Secondary')
                 @foreach ($view_classes as $view_classe)
                  @if ($view_classe->section == 'Junior Secondary' || $view_classe->section == 'Secondary' || $view_classe->section == 'Senior Secondary')
                  <li class="nav-item">
@@ -1313,13 +1331,28 @@
                    
                  @endif
                 @endforeach
+
+                @elseif (Auth::guard('web')->user()->section == 'Technical')
+                @foreach ($view_classes as $view_classe)
+                 @if ($view_classe->section == 'Technical')
+                 <li class="nav-item">
+                    <a href="{{ url('/admin/viewyourstudentsprimary/'.$view_classe->classname) }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{ $view_classe->classname }}</p>
+                    </a>
+                  </li>
+                 @else
+                 @endif
+                @endforeach
+                @else 
+
                 @endif
              
                 
               </li>
 
               <li class="nav-item">
-                <a href="{{ url('admin/suspendstudent') }}" class="nav-link">
+                <a href="{{ url('admin/suspendstudentone') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Suspended @if (Auth::guard('web')->user()->schooltype == 'SSEB')
                     Students
@@ -1388,8 +1421,7 @@
                  @endif
                 @endforeach
                 
-
-                @else
+                @elseif (Auth::guard('web')->user()->section == 'Secondary')
                 @foreach ($view_classes as $view_classe)
                  @if ($view_classe->section == 'Senior Secondary' || $view_classe->section == 'Secondary' || $view_classe->section == 'Junior Secondary')
                  <li class="nav-item">
@@ -1402,6 +1434,23 @@
                    
                  @endif
                 @endforeach
+
+                @elseif (Auth::guard('web')->user()->section == 'Technical')
+                @foreach ($view_classes as $view_classe)
+                 @if ($view_classe->section == 'Technical')
+                 <li class="nav-item">
+                    <a href="{{ url('/admin/viewyourteachersby/'.$view_classe->classname) }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{ $view_classe->classname }}</p>
+                    </a>
+                  </li>
+                 @else
+                   
+                 @endif
+                @endforeach
+
+                @else 
+
                 @endif
              
 

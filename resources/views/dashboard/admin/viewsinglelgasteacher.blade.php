@@ -44,10 +44,29 @@
                     </div>
                     <div class="card-body pad table-responsive">
                         <div class="row">
+                           <div class="col-md-3">
+                                <div class="card card-primary">
+                                  <div class="card-header">
+                                    <h3 class="card-title"><a href="{{ url('admin/primteachersbylgaadmin/'.$view_lgas->lga) }}">Primary Teachers</a></h3>
+                    
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                  </div>
+                                  <!-- /.card-header -->
+                                  <div class="card-body">
+                                    <a href="{{ url('admin/primteachersbylgaadmin/'.$view_lgas->lga) }}">View Primary School Teacher</a> 
+                                  </div>
+                                </div>
+                              </div>
+
+
                             <div class="col-md-3">
                                 <div class="card card-primary">
                                   <div class="card-header">
-                                    <h3 class="card-title"><a href="{{ url('admin/secondaryteachersbylgaadmin/'.$view_lgas->lga) }}">Secondary Students</a></h3>
+                                    <h3 class="card-title"><a href="{{ url('admin/secondaryteachersbylgaadmin/'.$view_lgas->lga) }}">Secondary Teachers</a></h3>
                     
                                     <div class="card-tools">
                                       <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -67,10 +86,13 @@
 
 
 
+                             
+
+
                               <div class="col-md-3">
                                 <div class="card card-primary">
                                   <div class="card-header">
-                                    <h3 class="card-title"><a href="{{ url('admin/primteachersbylgaadmin/'.$view_lgas->lga) }}">Primary Teachers</a></h3>
+                                    <h3 class="card-title"><a href="{{ url('admin/technicalteachersbylgaadmin/'.$view_lgas->lga) }}">Technical Teachers</a></h3>
                     
                                     <div class="card-tools">
                                       <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -80,10 +102,11 @@
                                   </div>
                                   <!-- /.card-header -->
                                   <div class="card-body">
-                                    <a href="{{ url('admin/primteachersbylgaadmin/'.$view_lgas->lga) }}">View Primary School Teacher</a> 
+                                    <a href="{{ url('admin/technicalteachersbylgaadmin/'.$view_lgas->lga) }}">View Technical School Teacher</a> 
                                   </div>
                                 </div>
                               </div>
+
                             
                         </div>
                     <!-- /.card -->

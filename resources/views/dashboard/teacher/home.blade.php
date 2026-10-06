@@ -201,7 +201,9 @@
 
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
-    <h5 class="m-0 text-dark">Teacher Registration Link <a href="{{ url('/registerteachers/'.Auth::guard('web')->user()->ref_no) }}" target="_blank">{{ url('/registerteachers/'.Auth::user()->ref_no) }} </a></h5>
+    <h5 class="m-0 text-dark">Teacher Registration Link <a href="{{ url('/admin/teacher/registerteachers/'.Auth::guard('web')->user()->ref_no) }}" target="_blank">{{ url('/admin/teacher/registerteachers/'.Auth::user()->ref_no) }} </a></h5><br>
+
+    <!-- <h5 class="m-0 text-dark">Teacher Registration Link <a href="{{ url('/registerteachers/'.Auth::guard('web')->user()->ref_no) }}" target="_blank">{{ url('/registerteachers/'.Auth::user()->ref_no) }} </a></h5> -->
     @if (Auth::guard('web')->user()->signature == null)
           <div class="col-lg-12 col-6">
               <!-- small box -->

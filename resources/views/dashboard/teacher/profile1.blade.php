@@ -7,7 +7,8 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-          <h5 class="m-0 text-dark"><a href="{{ url('/registerteachers/'.Auth::guard('web')->user()->ref_no) }}" target="_blank">{{ url('/registerteachers/'.Auth::user()->ref_no) }} </a></h5>
+          <!-- <h5 class="m-0 text-dark"><a href="{{ url('/registerteachers/'.Auth::guard('web')->user()->ref_no) }}" target="_blank">{{ url('/registerteachers/'.Auth::user()->ref_no) }} </a></h5> -->
+            <h5 class="m-0 text-dark">Teacher Registration Link <a href="{{ url('/admin/teacher/registerteachers/'.Auth::guard('web')->user()->ref_no) }}" target="_blank">{{ url('/admin/teacher/registerteachers/'.Auth::user()->ref_no) }} </a></h5><br>
           
           </div>
           <div class="col-sm-6">

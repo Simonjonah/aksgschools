@@ -114,6 +114,17 @@ class LgaController extends Controller
         return view('dashboard.admin.primteachersbylgaadmin', compact('lgaModel', 'view_classes', 'viewsecondaries'));
     }
 
+
+     public function technicalteachersbylgaadmin($lga){
+        $lgaModel = Lga::where('lga', $lga)->first();
+        $viewsecondaries = User::where('lga', $lga)
+        ->where('section', 'Technical')
+        ->where('role', 'teacher')
+        ->latest()->get();
+        $view_classes = Classname::all();
+        return view('dashboard.admin.primteachersbylgaadmin', compact('lgaModel', 'view_classes', 'viewsecondaries'));
+    }
+
    
 
     
@@ -309,6 +320,15 @@ class LgaController extends Controller
         return view('dashboard.admin.viewprimaryschoolsresultsbyadmins', compact('view_schols', 'view_lgas'));
     }
 
+    
+
+
+
+    public function viewtechnicalschoolsresultsbyadmins($lga){
+        $view_lgas = Lga::where('lga', $lga)->first();
+        $view_schols = School::where('section', 'Secondary')->where('schooltype', 'SSEB')->get();
+        return view('dashboard.admin.viewsecondaryschoolsresultsbyadmin', compact('view_schols', 'view_lgas'));
+    }
 
 
     public function viewsecondaryschoolsresultsbyadmin($lga){

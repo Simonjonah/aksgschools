@@ -31,7 +31,7 @@
            {{-- <img src="{{ asset('assets/dist/img/arise.jpg') }}" alt="webLTE Logo" class="brand-image "
            style="opacity: .8">
            <br> --}}
-      <span class="brand-text font-weight-light"><br>BAYELSA SCHOOLS </span>
+      <span class="brand-text font-weight-light"><br>AKSG SCHOOLS </span>
     </a>
     
       

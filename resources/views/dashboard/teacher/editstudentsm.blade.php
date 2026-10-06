@@ -229,24 +229,10 @@
                           <label>Class </label>
                           <select name="classname" class="form-control" id="">
                           <option value="{{ $edit_primarypupils->classname }}">{{ $edit_primarypupils->classname }}</option>
-                            @if (Auth::user()->section == 'Primary')
-                                @foreach ($view_classes as $view_classe)
-                                    @if ($view_classe->section == 'Primary')
-                                    <option value="{{ $view_classe->classname }}">{{ $view_classe->classname }}</option>
-                                    @else
-                                   
-                                   @endif
-                                @endforeach
-                            @else
-                            @foreach ($view_classes as $view_classe)
-                                    @if ($view_classe->section == 'Secondary')
-                                    <option value="{{ $view_classe->classname }}">{{ $view_classe->classname }}</option>
-                                    @else
-                                   
-                                   @endif
-                                @endforeach
-                            @endif
                             
+                                @foreach ($view_classes as $view_classe)
+                                    <option value="{{ $view_classe->classname }}">{{ $view_classe->classname }}</option>
+                                @endforeach    
                             
                           </select>
                         

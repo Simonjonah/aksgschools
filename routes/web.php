@@ -84,6 +84,7 @@ Route::get('schoolsprincipals/{ref_no1}', [UserController::class, 'schoolsprinci
 Route::get('schoolsheads/{ref_no1}', [UserController::class, 'schoolsheads'])->name('schoolsheads');
 Route::get('registerprincipals/{ref_no1}', [SchoolsController::class, 'registerprincipals'])->name('registerprincipals');
 Route::post('creatschools', [SchoolsController::class, 'creatschools'])->name('creatschools');
+Route::get('registerteachers/{ref_no}', [UserController::class, 'registerteachers'])->name('registerteachers');
 
 Route::post('/createprincipals2', [UserController::class, 'createprincipals2'])->name('createprincipals2');
 
@@ -140,7 +141,8 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('slideredit/{ref_no}', [MainsliderController::class, 'slideredit'])->name('slideredit');
         Route::put('updateslider/{ref_no}', [MainsliderController::class, 'updateslider'])->name('updateslider');
         Route::get('slideredelete/{ref_no}', [MainsliderController::class, 'slideredelete'])->name('slideredelete');
-      
+        Route::get('technicalteachersbylgaadmin/{lga}', [LgaController::class, 'technicalteachersbylgaadmin'])->name('technicalteachersbylgaadmin');
+        Route::get('viewtechnicalschoolsresultsbyadmins/{lga}', [LgaController::class, 'viewtechnicalschoolsresultsbyadmins'])->name('viewtechnicalschoolsresultsbyadmins');
         
       
         Route::get('addtechClasses', [ClassnameController::class, 'addtechClasses'])->name('addtechClasses');
